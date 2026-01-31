@@ -1,2 +1,2 @@
-Практическая №3-4
+Практическая №5
 https://mnwa610.github.io/duo_mirea/
