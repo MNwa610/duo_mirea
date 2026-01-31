@@ -5,24 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revo Coffee Вьетнам</title>
     <link rel="icon" type="image/x-icon" href="assets/icons/Магазин.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mobile.css" media="screen and (max-width: 1024px)">
 </head>
 <body class="page">
-    <header class="site-header" id="top">
-        <div class="site-header__brand">
-            <img class="site-header__logo" src="assets/icons/Магазин.png" alt="Логотип магазина">
-            <span class="site-header__name">Revo Coffee</span>
+    <header class="site-header header" id="top">
+        <div class="container">
+            <div class="header__inner">
+                <a href="#hero" class="site-header__brand logo">
+                    <img class="site-header__logo" src="assets/icons/Магазин.png" alt="Логотип Revo Coffee" width="44" height="44">
+                    <span class="site-header__name">Revo Coffee</span>
+                </a>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                </button>
+                <nav class="site-nav nav" id="mainNav">
+                    <ul class="site-nav__list nav__list">
+                        <li class="site-nav__item nav__item"><a class="site-nav__link nav__link" href="#hero">Главная</a></li>
+                        <li class="site-nav__item nav__item"><a class="site-nav__link nav__link" href="#coffee-base">Кофе</a></li>
+                        <li class="site-nav__item nav__item"><a class="site-nav__link nav__link" href="#flavor-profile">Вкусы</a></li>
+                        <li class="site-nav__item nav__item"><a class="site-nav__link nav__link" href="#giftset">Наборы финов</a></li>
+                        <li class="site-nav__item nav__item"><a class="site-nav__link nav__link" href="#personalized">Подарочные наборы</a></li>
+                        <li class="site-nav__item nav__item"><a class="site-nav__link nav__link" href="#contacts">Контакты</a></li>
+                    </ul>
+                </nav>
+                <a href="#contacts" class="btn btn--primary header__cta">Заказать</a>
+            </div>
         </div>
-        <nav class="site-nav">
-            <ul class="site-nav__list">
-                <li class="site-nav__item"><a class="site-nav__link" href="#hero">Главная</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="#coffee-base">Кофе</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="#flavor-profile">Вкусы</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="#giftset">Наборы финов</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="#personalized">Подарочные наборы</a></li>
-                <li class="site-nav__item"><a class="site-nav__link" href="#contacts">Контакты</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main class="page__main main-content">
@@ -224,5 +236,9 @@
             <a class="site-footer__link" href="#top">Вверх</a>
         </div>
     </footer>
+
+    <button class="scroll-top" id="scrollTop" type="button" aria-label="Наверх">↑</button>
+
+    <script src="scripts/menu.js"></script>
 </body>
 </html>

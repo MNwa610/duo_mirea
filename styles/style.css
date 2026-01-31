@@ -11,9 +11,10 @@
 body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
+  font-size: 16px; 
   color: #1f1f1f;
   background-color: #f8f6f2;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 img {
@@ -58,17 +59,26 @@ button {
   width: 100%;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
   background-color: rgba(248, 246, 242, 0.95);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid #e7e1d7;
-  padding: 16px 24px;
+}
+
+.header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 16px 0;
   gap: 24px;
 }
 
@@ -79,6 +89,8 @@ button {
   font-weight: 700;
   letter-spacing: 0.03em;
   flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
 }
 
 .site-header__logo {
@@ -94,23 +106,140 @@ button {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 10px;
+  flex-wrap: nowrap;
   justify-content: flex-end;
 }
 
 .site-nav__link {
-  padding: 8px 16px;
+  padding: 6px 12px;
   border-radius: 10px;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.site-nav__link:hover {
+.site-nav__link:hover,
+.nav__link:hover,
+.site-nav__link.active,
+.nav__link.active {
   background-color: #d96b2b;
   color: #fff;
+}
+
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 44px;
+  min-height: 44px;
+  background: transparent;
+  border: none;
+  padding: 12px 10px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle__line {
+  width: 100%;
+  height: 3px;
+  background: #1f1f1f;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.active .menu-toggle__line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active .menu-toggle__line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .menu-toggle__line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Кнопка CTA в шапке (десктоп) */
+.btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn--primary {
+  background-color: #d96b2b;
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background-color: #b35421;
+  transform: translateY(-2px);
+}
+
+.btn--primary:active {
+  transform: scale(0.98);
+}
+
+/* Кнопка "Наверх" */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  background-color: #d96b2b;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background-color: #b35421;
+  transform: scale(1.1);
+}
+
+.scroll-top:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .scroll-top {
+    width: 52px;
+    height: 52px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 22px;
+  }
 }
 
 .hero {
@@ -571,10 +700,19 @@ button {
   
   .coffee-card__actions {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .coffee-card__actions .button {
     width: 100%;
+    max-width: 250px;
+  }
+  
+  .giftset__actions,
+  .giftset__actions.actions {
+    justify-content: center;
+    align-items: center;
   }
   
   .giftset__specs {
@@ -638,10 +776,13 @@ button {
   .product-card__actions {
     flex-direction: column;
     width: 100%;
+    align-items: center;
+    justify-content: center;
   }
   
   .product-card__actions .button {
     width: 100%;
+    max-width: 250px;
   }
   
   .site-footer__content {
